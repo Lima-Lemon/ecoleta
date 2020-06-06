@@ -1,0 +1,130 @@
+body {
+    background-color: white;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    background-color: #f0f0f5;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    height: 16rem;
+    z-index: -1;
+    /* Jogando ele lá para trás */
+}
+
+#page-search-results {
+    /* Procura algum elemento com o id "pagre-create-point*/
+    width: 90%;
+    max-width: 1100px;
+    /* A largura dele é 90% dos pixels da tela, não aumentando mais 
+    quando chega em 1100px de largura*/
+
+    margin: 0 auto;
+    /* Margens top e bottom sendo 0 e as laterais sendo preenchidas automáticas*/
+}
+
+#page-search-results header {
+    margin-top: 48px;
+
+    display: flex;
+    justify-content: space-between;
+    /* Coloca um cara para o lado, um espaço no meio e o outro cara para o outro lado */
+    align-items: center;
+    /* Alinhando os itens de uma maneira centralizada com seus tamanhos */
+}
+
+#page-search-results header a {
+    color: var(--title-color);
+    /* Está puxando a variável de cor declarada no main.css, visto que
+    esse arquivo foi injetado no create-point.html - o html puxa o css
+    na ordem que está lá -> puxa primeiro o css mian, colocando ele, depois coloca
+    o create-point. Então a variável já existe disponível. Por isso, repare que
+    a ordem das chamadas do css é importante lá no documento html */
+    font-weight: bold;
+
+    display: flex;
+    /* Coloca os items do a um ao lado do outro*/
+    align-items: center;
+
+}
+
+#page-search-results header a span {
+    margin-right: 16px;
+    background-image: url('../assets/arrow-left.svg');
+
+    /* LEMBRETE: Lembre que, para a imagem background desse span 
+    aparecer, temos que declarar uma largura e um comprimento
+    para o box desse span e ele preisa ser do tipo de display:flex*/
+
+    display: flex;
+
+    width: 20px;
+    height: 24px;
+}
+
+main {
+    margin: 48px;
+
+}
+
+main h4 {
+    font-weight: normal;
+    font-family: Roboto, sans-serif;
+
+    margin-bottom: 32px;
+
+}
+
+main .cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    gap: 24px;
+
+}
+
+main .card img {
+    /* Para todas as imagens */
+    width: 100%;
+    height: 150px;
+
+    object-fit: cover;
+    /* Fala para preencher todo o espaço com imagem 
+    A imagem altera com alterações da página de tamanho */
+
+    border-radius: 8px 8px 0 0;
+}
+
+main .card h1 {
+
+    margin-top: 32px;
+
+    font-size: 36px;
+    line-height: 41px;
+    color: #322153;
+
+}
+
+main .card h3 {
+    margin: 24px 0;
+
+    font-family: Roboto;
+    font-weight: bold;
+
+    font-size: 24px;
+    line-height: 34px;
+
+    color: var(--primary-color);
+
+}
+
+main .card p {
+    font-size: 16px;
+    line-height: 26px;
+
+    color: #6c6c80;
+}
+

@@ -1,0 +1,129 @@
+#modal {
+    /* Fazendo o modal cobrir toda a página */
+    background-color: #0e0a14ef;
+    /* ultimos 2 dígitos -> alfa */
+    height: 100vh;
+    width: 100vw;
+
+    position: fixed;
+    top: 0;
+    /* É uma posição que ele vai ficar fixo na página. Colocamos
+    lá em cima */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: 400ms;
+    /* Para aparecer suavemente */
+}
+
+#modal.hide {
+    /* PERCEBA QUE NÃO ESTÁ PROCURANDO UM HIDE DENTRO DO MODAL, MAS SIM
+    FALANDO: QUANDO O MODAL POSSUIR UMA CLASSE HIDE */
+    display: none;
+    /* significa que o display não vai aparecer na tela*/
+}
+
+#modal .content {
+    color: white;
+    /* Mudando a cor do texto */
+    width: 420px;
+}
+
+#modal .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 48px;
+}
+
+#modal .header a {
+    background-image: url("../assets/x.svg");
+
+    width: 20px;
+    height: 20px;
+
+    display: flex;
+
+    font-size: 0.01px;
+    /* Uma fonte extremamente pequena para nós não conseguirmos ler,
+    mas o leitor de conteúdo conseguir identificar para a acessibilidade */
+
+}
+
+#modal .header h1 {
+    color: white;
+
+    font-size: 36px;
+    line-height: 42px;
+}
+
+#modal form label {
+    font-size: 14px;
+    line-height: 16px;
+
+    display: block;
+    /* display block para forçar que ele fique a linha toda */
+    margin-bottom: 8px;
+    /* Naturalmente, o label é um display in line. Diante disso,
+    caso não tivesse colocado display block, não teria funcionado o margin-bottom*/
+
+}
+
+#modal form .field {
+    display: flex;
+    /* Lembrando: display flex para ocupar todo o
+    espaço que possui disponível */
+}
+
+#modal form input {
+    flex: 1;
+    /* Vai pegar todo o espaço que sobra para ele */
+
+    background-color: var(--ice-color);
+
+    border-radius: 8px 0 0 8px;
+    border: 0;
+    /* Retirando a borda padrão do navegador */
+
+    padding: 16px 24px;
+
+    font-size: 16px;
+    color: #6c6c80;
+    /* A cor do escrito no input receberá esse valor */
+}
+
+#modal form button {
+    width: 72px;
+    height: 72px;
+
+    background-color: var(--primary-color);
+
+    border-radius: 0 8px 8px 0;
+    border: 0;
+
+}
+
+#modal form button:hover {
+    background-color: #2fb85e;
+}
+
+/* Para o modal point created */
+
+#modal.point .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+#modal.point h1 {
+    display: flex;
+    align-items: center;
+    color: white;
+
+    justify-content: center;
+    margin-top: 32px;
+}

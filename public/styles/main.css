@@ -1,0 +1,45 @@
+:root {
+    --title-color: #322153;
+    --primary-color: #34cb79;
+    --ice-color: #f0f0f5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* O tamanho da caixa passa a ser, como padrão, as dimensões, de fato, da caixa*/
+}
+
+html{
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background: #f0f0f5;
+    -webkit-font-smoothing: antialiased;
+}
+
+a { 
+    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family:'Ubuntu', sans-serif;;
+    color: var(--title-color);
+}
+
+/* BOX MODEL = cada um dos elementos recebem um padrão de uma caixa - como se fossem uma caixa*/
+/* E pode haver caixas dentro de caixas. -> possui altura, largura -> 
+dá para ver sua representação em uma imagem de figura geométrica no devtools; mostrando
+o padding (preenchimento); bordas; margens 
+Exibição do tipo block -> ocupa toda a linha e joga o elemento para baixo.
+Exibição do tipo line -> ocupa apenas o tamanho da sua caixa e não a linha inteira. Caso tenha
+    elementos in line ao seu lado, ficará um do lado do outro.
+
+Modelo de caixa
+Toda caixa tem
+largura, altura, espaçamento, preenchimento
+bordas, cor, fundo, maneira que é vista pelo html (display).
+posicionamento, alinhamento
+*/

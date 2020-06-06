@@ -1,0 +1,136 @@
+@media(max-width: 900px) {
+    /* Código de responsividade */
+    #page-home {
+        background-position-x: 70vw;
+    }
+
+    #page-home .content {
+        align-items: center;
+        text-align: center;
+    }
+
+    #page-home header a {
+        position: absolute;
+        bottom:48px;
+
+        left:50%;
+        transform: translateX(-50%);
+    }
+
+    #page-home main {
+        align-items: center;
+    }
+
+    #page-search-results .cards {
+        grid-template-columns: 1fr;
+    }
+
+    #page-search-results .cards img {
+        height: 200px;
+    }
+
+    #page-create-point .field-group {
+        flex-direction: column;
+
+    }
+
+    #page-create-point .field-group .field+ .field {
+        margin-left: 0;
+    }
+}
+
+@media (min-width: 1700px) {
+    /* De 1700 de largura para cima, as seguintes regras serão aplicadas */
+    #page-home {
+        background-position-x: 50vw;
+    }
+}
+
+/* Tentando adequar um pouco da questão de responsividade por conta própria */
+@media (max-height: 760px) {
+    /* Altura menor que 760px segue as seguintes regras */
+    #page-home {
+        background-position-y: 200px;
+        /* A imagem do background vai ficar fixa em um determinado valor de y, não prejudicando
+        a dinâmica de apresentação do site em telas menores*/
+    }
+}
+
+@media (min-height: 1180px) {
+    /* A partir de 1080px de altura, as seguintes regras serão aplicadas */
+    #page-home {
+        background-position-y: 500px;
+    } 
+}
+
+@media (max-height: 740px) {
+    /* Até 740px de altura, seguintes regras são aplicadas */
+    #page-home main h1 {
+        font-size: 40px;
+    }
+    #page-home main p {
+        font-size: 20px;
+    }
+}
+
+@media (max-height: 600px) {
+    #page-home main h1 {
+        font-size: 35px;
+    }
+
+    #page-home main a {
+        margin-top: 10px;
+    }
+
+    #page-home header {
+        margin-top: -10px;
+    }
+}
+
+@media (max-width: 400px) {
+    #page-home main a {
+        margin: 20px 0;
+    }
+
+    #modal .content form .search.field button {
+        margin-right: 25px;
+    }
+
+    #modal .content form .search.field input {
+        margin-left: 25px;
+    }
+
+    #modal .content form label {
+        margin-left: 25px;
+    }
+
+    #modal .content .header h1 {
+        margin-left: 25px;
+        font-size: 30px;
+    }
+
+    #modal .content .header a {
+        margin-right: 25px;
+    }
+
+
+    /* SEARCH-RESULTS */
+    #page-search-results header {
+        
+        flex-direction: column;
+    }
+
+    #page-search-results header {
+        justify-content: center;
+    }
+
+    #page-search-results header a.voltarHome {
+        margin: 30px;
+    }
+
+    #page-search-results main {
+        display: inline;
+        justify-content: center;
+    }
+
+}

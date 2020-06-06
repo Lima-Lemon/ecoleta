@@ -1,0 +1,251 @@
+#page-create-point {
+    /* Procura algum elemento com o id "pagre-create-point*/
+    width: 90%;
+    max-width: 1100px;
+    /* A largura dele é 90% dos pixels da tela, não aumentando mais 
+    quando chega em 1100px de largura*/
+
+    margin: 0 auto;
+    /* Margens top e bottom sendo 0 e as laterais sendo preenchidas automáticas*/
+}
+
+#page-create-point header {
+    margin-top: 48px;
+
+    display: flex;
+    justify-content: space-between;
+    /* Coloca um cara para o lado, um espaço no meio e o outro cara para o outro lado */
+    align-items: center;
+    /* Alinhando os itens de uma maneira centralizada com seus tamanhos */
+}
+
+#page-create-point header a {
+    color: var(--title-color);
+    /* Está puxando a variável de cor declarada no main.css, visto que
+    esse arquivo foi injetado no create-point.html - o html puxa o css
+    na ordem que está lá -> puxa primeiro o css mian, colocando ele, depois coloca
+    o create-point. Então a variável já existe disponível. Por isso, repare que
+    a ordem das chamadas do css é importante lá no documento html */
+    font-weight: bold;
+
+    display: flex;
+    /* Coloca os items do a um ao lado do outro*/
+    align-items: center;
+
+}
+
+#page-create-point header a span {
+    margin-right: 16px;
+    background-image: url('../assets/arrow-left.svg');
+
+    /* LEMBRETE: Lembre que, para a imagem background desse span 
+    aparecer, temos que declarar uma largura e um comprimento
+    para o box desse span e ele preisa ser do tipo de display:flex*/
+
+    display: flex;
+
+    width: 20px;
+    height: 24px;
+}
+
+form {
+    background-color: white;
+
+    margin: 80px auto;
+    margin-top: 80px;
+    padding: 64px;
+    /* O padding é responsável pelo preenchimento interno da caixa. No caso, como
+    foi um padding geral, ele tem um preenchimento de 64px de todas as laterais. Toda
+    caixa possui um preenchimento */
+
+    border-radius: 8px;
+    /* Todas as laterais vão receber uma bordinha */
+
+    max-width: 730px;
+    /* Colocando uma largura máxima */
+
+}
+
+form h1 {
+    font-size: 36px;
+}
+
+form fieldset {
+    margin-top: 64px;
+
+    border: 0;
+    /* Tira aquela borda do fieldset */ 
+}
+
+form legend {
+    margin-bottom: 40px;
+    /* Distanciamento enrte o Dados da entidade e o início dos inputs*/
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+}
+
+form legend h2 {
+    font-size: 24px;
+
+}
+
+form legend span {
+    font-size: 14px;
+    color: var(--title-color);
+    
+}
+
+form .field {
+    flex: 1;
+    /* Faz os fields se adaptarem a preencher todo o espaço
+    que possuem disponível -> fazemos isso para os elementos
+    dos field-groups preencherem o espaço*/
+
+    display: flex;
+    /* flex -> coloca um elemento ao lado do outro*/
+    flex-direction: column;
+    /* Elementos passam a seguir a ideia de ficar em coluna*/
+
+    margin-bottom: 24px;
+    /* Cada field recebe um margin-bottom de 24px*/
+}
+
+form .field-group {
+    display: flex;
+    /* Colocamos um ao lado do outro -> apenas os elementos
+    do field-group*/
+}
+
+form input,
+form select {
+    /* Fazendo esse sistema de colocar vírgula, ele pega
+    e já aplica alumas dessas propriedades para o select*/
+    background-color: #f0f0f5;
+
+    border: 0;
+    padding: 16px 24px;
+    font-size: 16px;
+    /* Fonte quando vai escrever */
+
+    border-radius: 8px;
+
+    /* outline: none; */
+    outline-color: var(--primary-color);
+    
+    /* Retirando aquela linha que aparece quando está selecionado*/
+}
+
+form select {
+    -webkit-appearance: none;
+    /* No Chrome tem alguns problemas, por isso
+    resetamos. Em outros navegadores também*/
+    -moz-appearance: none;
+    appearance: none;
+
+    /* Fazendo isso, retiramos sua característica 
+    de ser um campo do estilo select */
+}
+
+form label {
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+form .field-group .field + .field {
+    /* Estamos escolhendo o field que é seguido de um field. É como
+    se o primeiro estivesse referenciado um campo e 
+    o outro referenciando o segundo campo*/
+
+    margin-left: 24px;
+}
+
+form button {
+    width: 260px;
+    height: 56px;
+
+    background-color: var(--primary-color);
+    border-radius: 8px;
+
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+
+    border: 0;
+    /* Retirando a borda padrão do botão */
+
+    margin-top: 40px;
+    transition: background-color 400ms;
+    /* Ele vai, com isso, aplicar a transição de tudo que ele pode.
+    Para mudar, coloca transição só para background*/
+}
+
+form button:hover {
+    background-color: #2fb86e;
+}
+
+.items-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    /* Display mais multidirecional do que o flex, não sendo unidirecional -> cria linhas
+    e colunas - basta chamar a propriedade de templates colums
+    colocando frações -> 1fr => calcula como encaixar 3 colunas, jogando os próximos para baixo
+    e fazendo o mesmo esquema*/
+    gap: 16px;
+    /* Propriedade do grid => Faz a separação entre os elementos*/
+}
+
+.items-grid li {
+    background-color: #f5f5f5;
+    list-style: none;
+    /* Tirando as bolinhas */
+
+    border: 2px solid #f5f5f5;
+    border-radius: 8px;
+    height: 180px;
+
+    padding: 32px 24px 16px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    /* Como o flex-direction está para colunas, o space-between funciona de forma vertical*/
+
+    text-align: center;
+
+    cursor: pointer;
+    /* Faz a mãozinha quando colocar o mouse por cima*/
+
+}
+
+.items-grid li span {
+    margin-top: 12px;
+    flex: 1;
+
+    display: flex;
+    align-items: center;
+
+    /* Amets de fazer essas configurações, o texto do span estava mais em baixo*/
+
+    color: var(--title-color)
+
+}
+
+.items-grid li.selected {
+    /* Procura dentro do items-grid, o li que possui a classe selected - perceba que é 
+    diferente de ter um selected dentro do li, pois, se quiséssemos isso, seria com espaço
+    entre li e .selected*/
+    background: #e1faec;
+    border: 2px solid var(--primary-color);
+
+}
+
+.items-grid li img,
+.items-grid li span {
+    pointer-events: none;
+    /* Retira os eventos de pointer para esses elementos que estão dentro do li */
+}
