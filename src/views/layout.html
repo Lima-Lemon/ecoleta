@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/assets/favicon.png">
+
+    {% block title %}
+        <title>Ecoleta</title>
+        {#Como já está preenchido, se ele entrar no local
+        e não encontrar um bloco de title, ele usa o que possui de padrão#}
+    {% endblock title %}
+    
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Ubuntu:wght@700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/styles/main.css">
+
+    {% block styles %}
+    {% endblock styles %}
+    {#Ele procura uma linha parecida no index e substitui/ coloca ela aqui#}
+    {#O que, no documento que ele está indo, não estiver em blocos, não é utilizado#}
+    {#Caso tenha algum documento que não tenha o bloco styles, não tem problema #}
+
+    
+    <link rel="stylesheet" href="/styles/responsive.css">
+
+</head>
+<body>
+
+    <div id="{{ pageId }}">
+    {# Acessando a variável do nunjucks #}
+        {% block content %}
+        {% endblock content %}
+    </div>
+
+    {% block modal %}
+    {% endblock modal %}
+
+    {% block scripts %}
+    {% endblock scripts %}
+</body>
+</html>

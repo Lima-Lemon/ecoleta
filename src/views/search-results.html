@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% set pageId = "page-search-results" %}
+
+{% block title %}
+    <title>Resultado da pesquisa</title>
+{% endblock title %}
+
+{% block styles %}
+    <link rel="stylesheet" href="/styles/search-results.css">
+{% endblock styles %}
+
+{% block content %}
+    {% include "partials/page-header.html" %}
+    <!-- Armazenamos um código que estava repetindo no page-search e no create-point em um arquivo html e estamos incluíndo ele aqui, por meio do nunjucks, com essa linha de código-->
+
+    <main>
+
+    {% if total > 0 %}
+        <h4>
+            <strong>{{ total }} ponto(s)</strong>
+            encontrados
+            <!--strong para negrito-->
+        </h4>
+
+        <div class="cards">
+
+            {# Estrutura de repetição do Nunjucks #}
+            {% for place in places %}
+                {# for variable in iterator -> iterator seria o nosso array. Endfor é rodar algumas vezes(?) #}
+                {# a caixa chama places e, dentro dela, temos vários place => pega um e roda o que tiver ali para rodar #}
+                {# Após rodar, dá uma olhada na caixa de novo e vê se tem mais para fazer até acabar #}
+
+                <div class="card">
+                    <img src="{{ place.image }}" alt="{{ place.name }}">
+                    <!--Esse place é a variável no nunjucks e ele é cada objeto daquela lista do rows -->
+                    <h1>{{ place.name }}</h1>
+                    <h3>{{ place.items }}</h3>
+                    <p>
+                        {{ place.city }}, {{ place.state }}
+                        <br/>
+                        <!-- br/ é a quebra de linha dentro do p -->
+                        {{ place.address }}
+                        <br/>
+                        {{ place.address2 }}
+                    </p>
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+
+    {%else%}
+
+        <h4><strong>Nenhum</strong> local encontrado</h4>
+
+    {% endif %}
+
+
+    </main>
+{% endblock content %}

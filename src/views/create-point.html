@@ -1,0 +1,157 @@
+{% extends "layout.html" %}
+
+{% set pageId = "page-create-point" %}
+
+{% block title %}
+    <title>Criar um ponto de coleta</title>
+{% endblock title %}
+
+{% block styles %}
+    <link rel="stylesheet" href="/styles/create-point.css">
+    <link rel="stylesheet" href="/styles/modal.css">
+    <link rel="stylesheet" href="/styles/responsive-cp.css">
+{% endblock styles %}
+
+{% block content %}
+    {% include "partials/page-header.html" %}
+
+    <form action="/savepoint" method="POST">
+    <!--Mudamos o método de get para post e o action é para onde ele vai levar os dados-->
+        <!-- Criamos uma caixa nomeada de "form" -->
+        <h1>Cadastro do ponto de coleta</h1>
+
+        <fieldset>
+            <!--Vai agrupar as duas partes de dados = ideia mais semântica apenas fieldset = coleção de campos -->
+            <!-- Fieldset - possui estilização padrão -->
+
+            <legend>
+                <h2>Dados da entidade</h2>
+            </legend>
+
+            <div class="field-group">
+                <!--Escrevendo ".field" aqui no html, ele cria uma div com classe field-->
+                <div class="field">
+                    <label for="name">Nome da entidade</label>
+                    <input type="text" name="name" required="required">
+                    <!--Ele ficou com esse required="required" provavelmente porque pedimos
+                    para formatar o documento-->
+                </div>
+
+                <div class="field">
+                    <label for="image">Imagem da entidade</label>
+                    <input 
+                        type="url" 
+                        name="image"
+                        placeholder="http://"
+                        required="required">
+                </div>
+
+            </div>
+
+            
+
+            <div class="field-group">
+                <!-- agruparemos campos (field é campo). Escrevendo .field*2, ele criar 2 div com classe field -->
+
+                <div class="field">
+                    <!--label+input -> gera um label ao lado de um input-->
+                    <label for="address">Endereço</label>
+                    <input type="text" name="address" required="required">
+                    <!-- required => torna obrigatório -->
+                </div>
+                <div class="field">
+                    <label for="address2">Número/Complemento</label>
+                    <input type="text" name="address2" required="required">
+                </div>
+            </div>
+
+            <div class="field-group">
+                <div class="field">
+                    <label for="state">Estado</label>
+                    <select name="uf" required="required">
+                        <!-- todo select precisa de opções dentro dele-->
+                        <option value="">Selecione o Estado</option>
+                    </select>
+                    <!--select: vai buscar, em algum lugar na internet, o Estado e, com isso, chamar desse mesmo lugar da internet, a lista de cidades daqueles estado. Já existe um serviço para isso = acho que utilizaremos o javascript para isso-->
+
+                    <input type="hidden" name="state">
+                    <!--Criando um input escondido (tipo hidden) => ele não aparece na tela, mas aparece nos campos - barra de pesquisa do navegador. Estamos escondendo o campo para atualizarmos esse campo com o valor do nome do Estado-->
+                </div>
+
+                <div class="field">
+                    <label for="city">Cidade</label>
+                    <select name="city" disabled="disabled" required="required">
+                        <!-- Deixamos ele desativo para, assim, ativar apenas depois que colocarmos o Estado -->
+                        <option value="">Selecione a Cidade</option>
+                    </select>
+                </div>
+
+            </div>
+
+        </fieldset>
+
+        <fieldset>
+            <legend>
+                <h2>Itens de coleta</h2>
+                <span>Selecione um ou mais itens abaixo</span>
+            </legend>
+            <div class="items-grid">
+                <li data-id="Lâmpadas">
+                    <!--id = identificador dessa lista-->
+                    <img src="/assets/lampadas.svg" alt="Lâmpadas">
+                    <span>Lâmpadas</span>
+                    <!--li => tag para semântica de listas-->
+                </li>
+
+                <li data-id="Pilhas e baterias">
+                    <img src="/assets/baterias.svg" alt="Pilhas e  baterias">
+                    <span>Pilhas e baterias</span>
+                </li>
+
+                <li data-id="Papéis e Papelão">
+                    <img src="/assets/papeis-papelao.svg" alt="Papéis e Papelão">
+                    <span>Papéis e Papelão</span>
+                </li>
+
+                <li data-id="Resíduos Eletrônicos">
+                    <img src="/assets/eletronicos.svg" alt="Resíduos Eletrônicos">
+                    <span>Resíduos Eletrônicos</span>
+                </li>
+
+                <li data-id="Resíduos Orgânicos">
+                    <img src="/assets/organicos.svg" alt="Resíduos Orgânicos">
+                    <span>Resíduos Orgânicos</span>
+                </li>
+
+                <li data-id="Óleo de Cozinha">
+                    <img src="/assets/oleo.svg" alt="Óleo de Cozinha">
+                    <span>Óleo de Cozinha</span>
+                </li>
+
+            </div>
+
+            <input type="hidden" name="items">
+        </fieldset>
+
+        <button type="submit">Cadastre ponto de coleta</button>
+        <!--Type=submit = quando clicar, faz o submit do form -> vai querer enviar o formulário-->
+
+    </form>
+    
+{% endblock content %}
+
+{% block modal %}
+    {% if saved %}
+        {% include "partials/point-created.html"%}
+    {% endif %}
+    {% if error %}
+        {# Página de erro #}
+        {% include "partials/point-error.html"%}
+    {% endif %}
+{% endblock modal %}
+
+
+{% block scripts %}
+    <script src="scripts/create-point.js"></script>
+    <!--Chamando o arquivo javaScript para o html-->
+{% endblock scripts %}

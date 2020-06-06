@@ -1,0 +1,31 @@
+<div id="modal" class="hide">
+    <!--O modal vai cobrir a tela toda-->
+    <div class="content">
+        <!-- O content vai ser o conteúdo -->
+
+        <div class="header">
+            <h1>Pontos de Coleta</h1>
+            <a href="#">Fechar</a>
+        </div>
+        <form action="/search">
+            <!-- Action mostra para que página vai
+            quando a ação for executada-->
+            <label for="search">Cidade</label>
+            <div class="search field">
+                <!--div com tanto uma classe chamada search, 
+                quanto uma classe chamada field-->
+
+                <input 
+                type="text" 
+                name="search"
+                placeholder="Pesquise por cidade"
+                >
+                <!-- Propriedade do nome que fica dentro do input e
+                desaparece quando se começa a escrever-->
+                <button>
+                    <img src="/assets/search.svg" alt="Buscar">
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
